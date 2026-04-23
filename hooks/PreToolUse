@@ -1,0 +1,8 @@
+#!/bin/bash
+# Atomic VCS: Pre-tool check
+INPUT=$(cat)
+WORKSPACE=$(echo "$INPUT" | jq -r '.workspaceRoots[0] // empty')
+if [ -n "$WORKSPACE" ] && [ -d "$WORKSPACE/.atomic" ]; then
+  echo "$INPUT" | atomic agent hooks cline pre-tool 2>/dev/null
+fi
+echo '{"cancel":false}'

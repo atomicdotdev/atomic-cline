@@ -1,0 +1,8 @@
+#!/bin/bash
+# Atomic VCS: Track task start — creates a draft view for this session
+INPUT=$(cat)
+WORKSPACE=$(echo "$INPUT" | jq -r '.workspaceRoots[0] // empty')
+if [ -n "$WORKSPACE" ] && [ -d "$WORKSPACE/.atomic" ]; then
+  echo "$INPUT" | atomic agent hooks cline task-start 2>/dev/null
+fi
+echo '{"cancel":false}'
