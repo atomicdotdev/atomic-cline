@@ -11,6 +11,14 @@ Automatic task recording with AI provenance, intent tracking, and knowledge grap
 - **Tool executions tracked** — file reads, writes, commands captured in a causal decision graph
 - **Intent workflow** — rules guide problem-first development with vault intents
 
+## Skills
+
+Installed as Cline workflows (symlinked into `~/Documents/Cline/Workflows/`), so the agent can pull them in on demand via slash commands:
+
+- **`/atomic-vault`** — intent and goal lifecycle, memory operations
+- **`/atomic-vcs`** — inspect repository state and history: `status`, `log`, `change` (`-p` provenance, `-a` AI attestation), `diff`
+- **`/code-intelligence`** — knowledge graph queries for code exploration
+
 ## Install
 
 ### Quick start
@@ -30,8 +38,9 @@ npx atomic-cline
 ### What install does
 
 1. **Hook scripts** — copies 7 executable scripts to `~/Documents/Cline/Hooks/`
-2. **Enable hooks** — toggle them on in Cline's Hooks tab (scale icon)
-3. **Rules** — copy `rules/atomic.md` to `.clinerules/` in each project
+2. **Skills** — symlinks the 3 skills into `~/Documents/Cline/Workflows/` as `/atomic-vault`, `/atomic-vcs`, `/code-intelligence`
+3. **Enable hooks** — toggle them on in Cline's Hooks tab (scale icon)
+4. **Rules** — copy `rules/atomic.md` to `.clinerules/` in each project
 
 ### Add rules to a project
 
@@ -78,7 +87,7 @@ Cline task start
 npx atomic-cline --uninstall
 ```
 
-Or manually remove the `atomic-*` files from `~/Documents/Cline/Hooks/`.
+Or manually remove the `atomic-*` files from `~/Documents/Cline/Hooks/` and the `atomic-vault.md` / `atomic-vcs.md` / `code-intelligence.md` symlinks from `~/Documents/Cline/Workflows/`.
 
 ## License
 
