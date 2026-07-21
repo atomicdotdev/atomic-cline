@@ -22,6 +22,24 @@ for hook in TaskStart TaskResume TaskComplete TaskCancel UserPromptSubmit PostTo
   fi
 done
 
+# 1b. Cline CLI hooks → ~/.cline/hooks/
+#     The Hooks above target the Cline VS Code extension (~/Documents/Cline).
+#     The Cline *CLI* loads hooks from ~/.cline/hooks (see `cline --hooks-dir`),
+#     named by event (TaskStart, TaskComplete, ...). Install them there too so
+#     the CLI records tasks. TaskComplete triggers the change + provenance.
+CLI_HOOKS_TARGET="${CLINE_DATA_DIR:-$HOME/.cline}/hooks"
+mkdir -p "$CLI_HOOKS_TARGET"
+cli_hooks=0
+for hook in TaskStart TaskResume TaskComplete TaskCancel UserPromptSubmit PostToolUse PreToolUse; do
+  src="$SCRIPT_DIR/hooks/$hook"
+  if [ -f "$src" ]; then
+    cp "$src" "$CLI_HOOKS_TARGET/$hook"
+    chmod +x "$CLI_HOOKS_TARGET/$hook"
+    cli_hooks=$((cli_hooks + 1))
+  fi
+done
+echo "  cli hooks: $cli_hooks → $CLI_HOOKS_TARGET/"
+
 # 2. Skills → symlinked into Workflows so they resolve as /atomic-vault,
 #    /atomic-vcs, /code-intelligence slash commands.
 mkdir -p "$SKILLS_TARGET"
