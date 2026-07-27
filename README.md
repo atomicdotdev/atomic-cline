@@ -4,6 +4,8 @@
 
 Automatic task recording with AI provenance, intent tracking, and knowledge graph skills.
 
+> **Definitive source:** this repository lives on Atomic storage at `https://atomic.atomic.storage/workspaces/oss/projects/atomic-cline/code`. The GitHub repo is a mirror.
+
 ## What it does
 
 - **1 task = 1 view** — a draft view is created automatically when a Cline task starts
@@ -23,16 +25,25 @@ Installed as Cline workflows (symlinked into `~/Documents/Cline/Workflows/`), so
 
 ### Quick start
 
+Requires the [Atomic VCS](https://atomic.dev) CLI on your PATH. Then:
+
+```bash
+atomic agent enable --agent cline
+```
+
+The enable command syncs the package from Atomic storage and installs it.
+
+### Development install
+
+From a local checkout:
+
 ```bash
 git clone https://github.com/atomicdotdev/atomic-cline
 cd atomic-cline
+atomic agent enable --agent cline --from .
+
+# or the legacy script path:
 ./install.sh
-```
-
-### From npm (once published)
-
-```bash
-npx atomic-cline
 ```
 
 ### What install does
@@ -84,7 +95,7 @@ Cline task start
 ## Uninstall
 
 ```bash
-npx atomic-cline --uninstall
+atomic agent disable --agent cline
 ```
 
 Or manually remove the `atomic-*` files from `~/Documents/Cline/Hooks/` and the `atomic-vault.md` / `atomic-vcs.md` / `code-intelligence.md` symlinks from `~/Documents/Cline/Workflows/`.

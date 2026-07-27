@@ -1,0 +1,77 @@
+schema = 1
+agent = "cline"
+version = "1.0.0"
+
+[requires]
+atomic = ">=0.11.0"
+
+# Cline VS Code extension hooks → ~/Documents/Cline/Hooks/atomic-<Hook>
+[[file]]
+src = "hooks/TaskStart"
+dst = "~/Documents/Cline/Hooks/atomic-TaskStart"
+
+[[file]]
+src = "hooks/TaskResume"
+dst = "~/Documents/Cline/Hooks/atomic-TaskResume"
+
+[[file]]
+src = "hooks/TaskComplete"
+dst = "~/Documents/Cline/Hooks/atomic-TaskComplete"
+
+[[file]]
+src = "hooks/TaskCancel"
+dst = "~/Documents/Cline/Hooks/atomic-TaskCancel"
+
+[[file]]
+src = "hooks/UserPromptSubmit"
+dst = "~/Documents/Cline/Hooks/atomic-UserPromptSubmit"
+
+[[file]]
+src = "hooks/PostToolUse"
+dst = "~/Documents/Cline/Hooks/atomic-PostToolUse"
+
+[[file]]
+src = "hooks/PreToolUse"
+dst = "~/Documents/Cline/Hooks/atomic-PreToolUse"
+
+# Cline CLI hooks → ~/.cline/hooks/<Hook>
+[[file]]
+src = "hooks/TaskStart"
+dst = "~/.cline/hooks/TaskStart"
+
+[[file]]
+src = "hooks/TaskResume"
+dst = "~/.cline/hooks/TaskResume"
+
+[[file]]
+src = "hooks/TaskComplete"
+dst = "~/.cline/hooks/TaskComplete"
+
+[[file]]
+src = "hooks/TaskCancel"
+dst = "~/.cline/hooks/TaskCancel"
+
+[[file]]
+src = "hooks/UserPromptSubmit"
+dst = "~/.cline/hooks/UserPromptSubmit"
+
+[[file]]
+src = "hooks/PostToolUse"
+dst = "~/.cline/hooks/PostToolUse"
+
+[[file]]
+src = "hooks/PreToolUse"
+dst = "~/.cline/hooks/PreToolUse"
+
+# Skills → Cline Workflows (flat <name>.md so they resolve as /<name> slash commands)
+[[file]]
+src = "skills/atomic-vault/SKILL.md"
+dst = "~/Documents/Cline/Workflows/atomic-vault.md"
+
+[[file]]
+src = "skills/atomic-vcs/SKILL.md"
+dst = "~/Documents/Cline/Workflows/atomic-vcs.md"
+
+[[file]]
+src = "skills/code-intelligence/SKILL.md"
+dst = "~/Documents/Cline/Workflows/code-intelligence.md"
