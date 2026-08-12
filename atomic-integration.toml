@@ -9,17 +9,9 @@ atomic = ">=0.11.0"
 package = "atomic-skills"
 
 # Skills → Cline Workflows (flat <name>.md so they resolve as /<name> slash commands)
-[[skill]]
-src = "skills/atomic-vault/SKILL.md"
-dst = "~/Documents/Cline/Workflows/atomic-vault.md"
-
-[[skill]]
-src = "skills/atomic-vcs/SKILL.md"
-dst = "~/Documents/Cline/Workflows/atomic-vcs.md"
-
-[[skill]]
-src = "skills/code-intelligence/SKILL.md"
-dst = "~/Documents/Cline/Workflows/code-intelligence.md"
+[skills]
+install = "all"
+dst_pattern = "~/Documents/Cline/Workflows/{name}.md"
 
 [[repo-file]]
 src = "AGENTS.md"
