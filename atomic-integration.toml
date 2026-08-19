@@ -5,6 +5,18 @@ version = "1.0.0"
 [requires]
 atomic = ">=0.11.0"
 
+[skills-source]
+package = "atomic-skills"
+
+# Skills → Cline Workflows (flat <name>.md so they resolve as /<name> slash commands)
+[skills]
+install = "all"
+dst_pattern = "~/Documents/Cline/Workflows/{name}.md"
+
+[[repo-file]]
+src = "AGENTS.md"
+dst = "AGENTS.md"
+
 # Cline VS Code extension hooks → ~/Documents/Cline/Hooks/atomic-<Hook>
 [[file]]
 src = "hooks/TaskStart"
@@ -62,16 +74,3 @@ dst = "~/.cline/hooks/PostToolUse"
 [[file]]
 src = "hooks/PreToolUse"
 dst = "~/.cline/hooks/PreToolUse"
-
-# Skills → Cline Workflows (flat <name>.md so they resolve as /<name> slash commands)
-[[file]]
-src = "skills/atomic-vault/SKILL.md"
-dst = "~/Documents/Cline/Workflows/atomic-vault.md"
-
-[[file]]
-src = "skills/atomic-vcs/SKILL.md"
-dst = "~/Documents/Cline/Workflows/atomic-vcs.md"
-
-[[file]]
-src = "skills/code-intelligence/SKILL.md"
-dst = "~/Documents/Cline/Workflows/code-intelligence.md"
